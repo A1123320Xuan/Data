@@ -18,10 +18,10 @@
             display: flex;
             flex-direction: row;
             justify-content: center; /* 水平置中 */
-            align-items: flex-start; /* 不要完全貼合垂直置中 */
-            gap: 40px; /* 增加說明文字與熱力圖的間距 */
+            align-items: center; /* 垂直置中 */
             width: 100%;
             max-width: 1200px;
+            height: 100vh; /* 滿版高度，確保垂直居中 */
             padding: 20px;
             box-sizing: border-box;
         }
@@ -47,21 +47,6 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .background-section {
-            background-color: #ffffff; /* 底部區塊背景色 */
-            border-top: 5px solid #ccc; /* 增加頂部邊框 */
-            border-radius: 12px 12px 0 0; /* 圓角效果 */
-            width: 100%;
-            height: 300px; /* 固定高度的背景色塊 */
-            position: relative;
-            margin-top: -50px; /* 將熱力圖部分與背景區塊重疊 */
-        }
-        .background-section iframe {
-            position: absolute;
-            top: -300px; /* 將熱力圖上移，置於背景區塊上方 */
-            left: 50%;
-            transform: translateX(-50%);
-        }
     </style>
 </head>
 <body>
@@ -75,9 +60,9 @@
                 <li>自由控制是否要顯示鄉鎮區塊。</li>
             </ul>
         </div>
-    </div>
-    <div class="background-section">
-        <iframe src="https://plotdb.io/v/chart/37312" allowfullscreen="true"></iframe>
+        <div class="iframe-container">
+            <iframe src="https://plotdb.io/v/chart/37312" allowfullscreen="true"></iframe>
+        </div>
     </div>
 </body>
 </html>
