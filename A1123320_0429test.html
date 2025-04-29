@@ -5,47 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>雲林縣村里級熱圖</title>
     <style>
+        /* 主體樣式 */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e6f7ff; /* 淡藍色背景 */
+            background-color: #f0f8ff; /* 更柔和的淺藍色背景 */
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
+        /* 容器樣式 */
         .container {
             display: flex;
-            flex-direction: row; /* 改為水平排列 */
+            flex-direction: row; /* 水平排列 */
             justify-content: center; /* 水平置中 */
-            align-items: flex-start; /* 垂直對齊到上方 */
+            align-items: flex-start; /* 垂直對齊至頂部 */
             width: 100%;
             max-width: 1200px;
             padding: 20px;
             box-sizing: border-box;
-            column-gap: 40px; /* 增加元素之間的空間 */
+            gap: 40px; /* 增加元素之間的間距 */
         }
+
+        /* 卡片樣式 */
         .card {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff; /* 純白背景 */
+            border: 1px solid #ddd; /* 淡灰色邊框 */
+            border-radius: 10px; /* 圓角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 陰影效果 */
             padding: 20px;
-            width: 30%; /* 調整比例 */
+            width: 35%; /* 調整寬度比例 */
             box-sizing: border-box;
+            transition: transform 0.3s, box-shadow 0.3s; /* 增加過渡效果 */
         }
-        .card h2 {
+
+        .card:hover {
+            transform: scale(1.02); /* 懸停時微放大 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 增加陰影 */
+        }
+
+        .card h2, .card h3 {
             margin-top: 0;
+            color: #333; /* 更深的字體顏色 */
         }
+
+        .card p {
+            line-height: 1.6; /* 增加行距 */
+            font-size: 1.1em; /* 稍大字體 */
+            color: #555; /* 更柔和的字體顏色 */
+        }
+
+        /* iframe 區域 */
         .iframe-container {
-            width: 65%; /* 調整比例 */
+            width: 60%; /* 調整比例 */
         }
+
         iframe {
             width: 100%;
             height: 600px;
-            border: 5px solid #f5deb3; /* 米色邊框 */
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 5px solid #87ceeb; /* 較鮮豔的藍色邊框 */
+            border-radius: 10px; /* 圓角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+            transition: transform 0.3s, box-shadow 0.3s; /* 增加過渡效果 */
+        }
+
+        iframe:hover {
+            transform: scale(1.01); /* 懸停時微放大 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 增強陰影 */
         }
     </style>
 </head>
@@ -56,9 +84,9 @@
             <h3>雲林人口結構與挑戰</h3>
             <p>雲林的老年人口比例持續上升，65歲以上人口已在許多村里佔據總人口的三成甚至更多，這不只是數字上的變化，更深刻反映了農村社會結構的轉型。</p>
             <p>雲林長期面臨青年人口外移、出生率降低的雙重壓力，在這樣的背景下，原本就高度依賴家庭與鄰里關係的社區，如今逐漸由高齡者主導。</p>
-            <p>在許多地方，例如元長、東勢或褒忠等鄉鎮，65歲以上的長者並非處於社會邊緣。他們仍然參與農事、在廟埕活動、照顧孫子女，成為社區生活的重要支柱。儘管身體機能有所退化，多數人仍保有一定的行動力與自主性。這樣的「活躍老化」現象，在雲林特別明顯，因為這裡的生活節奏較慢，鄰里熟識，人際關係緊密，有助於延緩高齡者的退化速度。</p>
-            <p>然而，在這樣的生活型態背後，亦隱藏著照顧與支持系統不足的風險。隨著年齡增長，長者面對慢性病、失能的機率提高，當家庭人力不足、專業照護資源不足時，負擔便落在社區與家人肩上。部分村落開始透過社區關懷據點或農會活動中心提供共餐與量血壓等初階服務，但在人力與資源配置上仍存在明顯落差。</p>
-            <p>在雲林，老年化不再只是社會議題，而是一種常態化的生活背景。如何從社區文化與鄉村特性出發，建立起長者友善的基礎設施與服務系統，將是接下來必須面對的重要挑戰。</p>
+            <p>在許多地方，例如元長、東勢或褒忠等鄉鎮，65歲以上的長者並非處於社會邊緣。他們仍然參與農事、在廟埕活動、照顧孫子女，成為社區生活的重要支柱。儘管身體機能有所退化，多數人仍保有一定的行動力與自主性。</p>
+            <p>然而，在這樣的生活型態背後，亦隱藏著照顧與支持系統不足的風險。隨著年齡增長，長者面對慢性病、失能的機率提高，當家庭人力不足、專業照護資源不足時，負擔便落在社區與家人肩上。</p>
+            <p>如何從社區文化與鄉村特性出發，建立起長者友善的基礎設施與服務系統，將是接下來必須面對的重要挑戰。</p>
         </div>
         <div class="iframe-container">
             <iframe src="https://plotdb.io/v/chart/37312" allowfullscreen="true"></iframe>
