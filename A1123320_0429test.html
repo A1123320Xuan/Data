@@ -47,17 +47,27 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .footer-card {
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            margin: 20px;
-            width: 80%;
+        .background-section {
+            background-color: #ffffff; /* 底部區塊背景色 */
+            border-top: 5px solid #ccc; /* 增加頂部邊框 */
+            border-radius: 12px 12px 0 0; /* 圓角效果 */
+            width: 100%;
+            padding: 50px 20px;
+            box-sizing: border-box;
             text-align: center;
+            position: relative;
+            margin-top: -50px; /* 將熱力圖部分與背景區塊重疊 */
+        }
+        .background-section iframe {
+            position: absolute;
+            top: -300px; /* 將熱力圖上移，置於背景區塊上方 */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .background-section p {
             font-size: 1.2em;
             color: #333;
+            margin-top: 320px; /* 確保文字位於熱力圖下方 */
         }
     </style>
 </head>
@@ -72,13 +82,10 @@
                 <li>自由控制是否要顯示鄉鎮區塊。</li>
             </ul>
         </div>
-        <div class="iframe-container">
-            <iframe src="https://plotdb.io/v/chart/37312" allowfullscreen="true"></iframe>
-        </div>
     </div>
-    <div class="footer-card">
-        <p>感謝您的使用！</p>
-        <p>歡迎隨時提供反饋，以便我們進一步優化您的體驗。</p>
+    <div class="background-section">
+        <iframe src="https://plotdb.io/v/chart/37312" allowfullscreen="true"></iframe>
+        <p>感謝您的使用！歡迎隨時提供反饋，以便我們進一步優化您的體驗。</p>
     </div>
 </body>
 </html>
