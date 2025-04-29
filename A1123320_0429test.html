@@ -52,9 +52,7 @@
             border-top: 5px solid #ccc; /* 增加頂部邊框 */
             border-radius: 12px 12px 0 0; /* 圓角效果 */
             width: 100%;
-            padding: 50px 20px;
-            box-sizing: border-box;
-            text-align: center;
+            height: 300px; /* 固定高度的背景色塊 */
             position: relative;
             margin-top: -50px; /* 將熱力圖部分與背景區塊重疊 */
         }
@@ -63,11 +61,6 @@
             top: -300px; /* 將熱力圖上移，置於背景區塊上方 */
             left: 50%;
             transform: translateX(-50%);
-        }
-        .background-section p {
-            font-size: 1.2em;
-            color: #333;
-            margin-top: 320px; /* 確保文字位於熱力圖下方 */
         }
     </style>
 </head>
@@ -85,7 +78,6 @@
     </div>
     <div class="background-section">
         <iframe src="https://plotdb.io/v/chart/37312" allowfullscreen="true"></iframe>
-        <p>感謝您的使用！歡迎隨時提供反饋，以便我們進一步優化您的體驗。</p>
     </div>
 </body>
 </html>
