@@ -129,6 +129,8 @@
         <div class="card">
             <h2>專案介紹</h2>
             <p>本專案旨在分析雲林縣各村里之高齡人口分布，透過熱力圖視覺化數據，幫助讀者了解高齡化社會的挑戰與機會。本專案結合年齡層數據與社會結構背景，提供政策規劃之參考依據。</p>
+            <p>隨著高齡化問題日益嚴重，許多農村地區面臨人口外移與老年人口比例上升的雙重壓力。本專案希望藉由清晰的視覺化圖表，讓使用者快速掌握人口分布變遷趨勢，進而為未來的社區發展與資源分配提供科學依據。</p>
+            <p>此外，本專案也希望促進學術研究與政策制定之間的互動，透過數據驅動的洞察，協助政府機構、非營利組織及地方社區共同應對高齡化挑戰，創造更具包容性與永續性的社會環境。</p>
         </div>
 
         <!-- 年齡熱力圖 -->
@@ -138,7 +140,7 @@
                 <button id="btn-65plus">65歲以上</button>
                 <button id="btn-65to80">65~80歲</button>
                 <button id="btn-80above">80歲以上</button>
-                <iframe id="chart-iframe" src="https://plotdb.io/v/chart/37461" allowfullscreen="true"></iframe>
+                <iframe id="chart-iframe" src="https://plotdb.io/v/chart/37477" allowfullscreen="true"></iframe>
             </div>
         </div>
     </div>
@@ -146,11 +148,11 @@
     <script>
         // JavaScript to handle button clicks and change iframe src
         document.getElementById('btn-65plus').addEventListener('click', function() {
-            document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37461";
+            document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37477";
         });
 
         document.getElementById('btn-65to80').addEventListener('click', function() {
-            document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37477";
+            document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37461";
         });
 
         document.getElementById('btn-80above').addEventListener('click', function() {
