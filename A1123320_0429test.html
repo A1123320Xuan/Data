@@ -42,9 +42,8 @@
         /* 容器樣式 */
         .container {
             display: flex;
-            flex-direction: row; /* 水平排列 */
-            justify-content: center; /* 水平置中 */
-            align-items: flex-start; /* 垂直對齊至頂部 */
+            flex-direction: column;
+            align-items: center;
             width: 100%;
             max-width: 1200px;
             padding: 20px;
@@ -59,7 +58,7 @@
             border-radius: 10px; /* 圓角 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 陰影效果 */
             padding: 20px;
-            width: 35%; /* 調整寬度比例 */
+            width: 100%; /* 調整寬度比例 */
             box-sizing: border-box;
             transition: transform 0.3s, box-shadow 0.3s; /* 增加過渡效果 */
         }
@@ -69,7 +68,7 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 增加陰影 */
         }
 
-        .card h2, .card h3 {
+        .card h2 {
             margin-top: 0;
             color: #333; /* 更深的字體顏色 */
         }
@@ -82,7 +81,7 @@
 
         /* iframe 區域 */
         .iframe-container {
-            width: 60%; /* 調整比例 */
+            width: 100%; /* 調整比例 */
             text-align: center;
         }
 
@@ -126,21 +125,24 @@
     </div>
 
     <div class="container">
+        <!-- 專案介紹 -->
         <div class="card">
-            <h2>雲林縣村里級熱圖</h2>
-            <h3>雲林人口結構與挑戰</h3>
-            <p>雲林的老年人口比例持續上升，65歲以上人口已在許多村里佔據總人口的三成甚至更多，這不只是數字上的變化，更深刻反映了農村社會的轉型。</p>
-            <p>雲林長期面臨青年人口外移、出生率降低的雙重壓力，在這樣的背景下，原本就高度依賴家庭與鄰里關係的社區，如今逐漸由高齡者主導。</p>
-            <p>在許多地方，例如元長、東勢或褒忠等鄉鎮，65歲以上的長者並非處於社會邊緣。他們仍然參與農事、在廟埕活動、照顧孫子女，成為社區的重要支柱。</p>
-            <p>然而，在這樣的生活型態背後，亦隱藏著照顧與支持系統不足的風險。隨著年齡增長，長者面對慢性病、失能的機率提高，當家庭人力不足時，這些問題更加嚴峻。</p>
-            <p>如何從社區文化與鄉村特性出發，建立起長者友善的基礎設施與服務系統，將是接下來必須面對的重要挑戰。</p>
+            <h2>專案介紹</h2>
+            <p>本專案旨在分析雲林縣各村里之高齡人口分布，透過熱力圖視覺化數據，幫助讀者了解高齡化社會的挑戰與機會。本專案結合年齡層數據與社會結構背景，提供政策規劃之參考依據。</p>
         </div>
-        <div class="iframe-container">
-            <button id="btn-65plus">65歲以上</button>
-            <button id="btn-65to80">65~80歲</button>
-            <iframe id="chart-iframe" src="https://plotdb.io/v/chart/37477" allowfullscreen="true"></iframe>
+
+        <!-- 年齡熱力圖 -->
+        <div class="card">
+            <h2>年齡熱力圖</h2>
+            <div class="iframe-container">
+                <button id="btn-65plus">65歲以上</button>
+                <button id="btn-65to80">65~80歲</button>
+                <button id="btn-80above">80歲以上</button>
+                <iframe id="chart-iframe" src="https://plotdb.io/v/chart/37461" allowfullscreen="true"></iframe>
+            </div>
         </div>
     </div>
+
     <script>
         // JavaScript to handle button clicks and change iframe src
         document.getElementById('btn-65plus').addEventListener('click', function() {
@@ -149,6 +151,10 @@
 
         document.getElementById('btn-65to80').addEventListener('click', function() {
             document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37477";
+        });
+
+        document.getElementById('btn-80above').addEventListener('click', function() {
+            document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37487";
         });
     </script>
 </body>
