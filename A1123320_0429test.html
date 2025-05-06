@@ -16,6 +16,29 @@
             align-items: center;
         }
 
+        /* 標題樣式 */
+        .header {
+            width: 100%;
+            background-color: #4682b4; /* 深藍色背景 */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 陰影效果 */
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em; /* 大標題字體 */
+            letter-spacing: 2px; /* 增加字距 */
+        }
+
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 1.2em; /* 副標題字體 */
+            font-style: italic; /* 斜體字 */
+            color: #f0f8ff; /* 更淺的字體顏色 */
+        }
+
         /* 容器樣式 */
         .container {
             display: flex;
@@ -96,6 +119,12 @@
     </style>
 </head>
 <body>
+    <!-- 新增標題區塊 -->
+    <div class="header">
+        <h1>雲林縣高齡人口熱力圖</h1>
+        <p>探索高齡化社會的分布與挑戰</p>
+    </div>
+
     <div class="container">
         <div class="card">
             <h2>雲林縣村里級熱圖</h2>
@@ -115,11 +144,11 @@
     <script>
         // JavaScript to handle button clicks and change iframe src
         document.getElementById('btn-65plus').addEventListener('click', function() {
-            document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37477";
+            document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37461";
         });
 
         document.getElementById('btn-65to80').addEventListener('click', function() {
-            document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37461";
+            document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37477";
         });
     </script>
 </body>
