@@ -60,6 +60,7 @@
         /* iframe 區域 */
         .iframe-container {
             width: 60%; /* 調整比例 */
+            text-align: center;
         }
 
         iframe {
@@ -75,6 +76,23 @@
             transform: scale(1.01); /* 懸停時微放大 */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 增強陰影 */
         }
+
+        /* 按鈕樣式 */
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: none;
+            background-color: #87ceeb;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #4682b4;
+        }
     </style>
 </head>
 <body>
@@ -82,15 +100,27 @@
         <div class="card">
             <h2>雲林縣村里級熱圖</h2>
             <h3>雲林人口結構與挑戰</h3>
-            <p>雲林的老年人口比例持續上升，65歲以上人口已在許多村里佔據總人口的三成甚至更多，這不只是數字上的變化，更深刻反映了農村社會結構的轉型。</p>
+            <p>雲林的老年人口比例持續上升，65歲以上人口已在許多村里佔據總人口的三成甚至更多，這不只是數字上的變化，更深刻反映了農村社會的轉型。</p>
             <p>雲林長期面臨青年人口外移、出生率降低的雙重壓力，在這樣的背景下，原本就高度依賴家庭與鄰里關係的社區，如今逐漸由高齡者主導。</p>
-            <p>在許多地方，例如元長、東勢或褒忠等鄉鎮，65歲以上的長者並非處於社會邊緣。他們仍然參與農事、在廟埕活動、照顧孫子女，成為社區生活的重要支柱。儘管身體機能有所退化，多數人仍保有一定的行動力與自主性。</p>
-            <p>然而，在這樣的生活型態背後，亦隱藏著照顧與支持系統不足的風險。隨著年齡增長，長者面對慢性病、失能的機率提高，當家庭人力不足、專業照護資源不足時，負擔便落在社區與家人肩上。</p>
+            <p>在許多地方，例如元長、東勢或褒忠等鄉鎮，65歲以上的長者並非處於社會邊緣。他們仍然參與農事、在廟埕活動、照顧孫子女，成為社區的重要支柱。</p>
+            <p>然而，在這樣的生活型態背後，亦隱藏著照顧與支持系統不足的風險。隨著年齡增長，長者面對慢性病、失能的機率提高，當家庭人力不足時，這些問題更加嚴峻。</p>
             <p>如何從社區文化與鄉村特性出發，建立起長者友善的基礎設施與服務系統，將是接下來必須面對的重要挑戰。</p>
         </div>
         <div class="iframe-container">
-            <iframe src="https://plotdb.io/v/chart/37461" allowfullscreen="true"></iframe>
+            <button id="btn-65plus">65歲以上</button>
+            <button id="btn-65to80">65~80歲</button>
+            <iframe id="chart-iframe" src="https://plotdb.io/v/chart/37477" allowfullscreen="true"></iframe>
         </div>
     </div>
+    <script>
+        // JavaScript to handle button clicks and change iframe src
+        document.getElementById('btn-65plus').addEventListener('click', function() {
+            document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37477";
+        });
+
+        document.getElementById('btn-65to80').addEventListener('click', function() {
+            document.getElementById('chart-iframe').src = "https://plotdb.io/v/chart/37461";
+        });
+    </script>
 </body>
 </html>
