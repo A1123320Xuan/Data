@@ -5,173 +5,237 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>雲林縣村里級熱圖</title>
     <style>
-        /* 主體樣式 */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(145deg, #ffd6d6, #ffecec); /* 更明亮的漸層 */
+            background: linear-gradient(to bottom, #ffcccc, #ffe6e6);
             display: flex;
             flex-direction: column;
             align-items: center;
-            animation: fadeIn 1s ease-in;
         }
 
-        /* 進場動畫 */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* 標題區塊 */
         .header {
             width: 100%;
-            background: linear-gradient(to right, #ff7f7f, #ff4d4d); /* 更鮮明漸層 */
+            background: linear-gradient(to right, #ff9999, #ff6666);
             color: white;
             text-align: center;
-            padding: 24px 0;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-            border-bottom: 6px solid #cc0000;
-            background-size: 200% 200%;
-            animation: gradientFlow 6s ease infinite;
-        }
-
-        /* 標題漸層動畫 */
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            border-bottom: 5px solid #ff4d4d;
         }
 
         .header h1 {
-            font-size: 2.8em;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
             margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .header p {
-            font-size: 1.5em;
+            margin: 5px 0 0 0;
+            font-size: 1.4em;
             font-style: italic;
-            color: #ffecec;
-            margin: 8px 0 0 0;
+            color: #ffe6e6;
         }
 
-/* 卡片增強樣式 */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            gap: 60px;
+        }
+
         .card {
-            background: linear-gradient(to bottom, #fff, #f5f5f5);
-            border: 1px solid #ddd;
+            background: linear-gradient(to bottom, #fff, #f1f1f1);
             border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            padding: 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding: 20px;
             width: 100%;
             box-sizing: border-box;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            animation: fadeIn 0.8s ease forwards;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
         }
 
-        /* 按鈕樣式 */
-        button {
-            background: linear-gradient(to bottom, #ff6666, #cc0000);
-            padding: 12px 28px;
-            font-size: 1.2em;
-            border-radius: 12px;
-            border: none;
-            color: white;
-            cursor: pointer;
-            margin: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        .card h2 {
+            margin-top: 0;
+            color: #333;
+            position: relative;
+            padding-bottom: 10px;
+            text-align: left;
         }
 
-        button:hover {
-            background-color: #ff1a1a;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+        .card h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            background: #87ceeb;
+            border-radius: 2px;
+            transition: width 0.3s ease;
         }
 
-        /* iframe 改為卡片感 */
+        .card h2:hover::after {
+            width: 120%;
+        }
+
+        .card p {
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .card ul {
+            margin-left: 20px;
+            margin-top: 10px;
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .card li::marker {
+            color: #ff6666;
+        }
+
+        .iframe-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .iframe-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
         iframe {
-            border: 4px solid #ff8080;
-            border-radius: 20px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            width: 100%;
+            height: 600px;
+            border: 5px solid #ff9999;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         iframe:hover {
-            transform: scale(1.01);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
 
-        /* 集點子圖片柔化處理 */
+        button {
+            padding: 12px 24px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            border: none;
+            background-color: #ff6666;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #ff3333;
+            transform: translateY(-3px);
+        }
+
+        #chart-analysis {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #444;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .idea-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
         .idea-section img {
-            border: 4px solid #fff0f0;
-            filter: brightness(0.97);
+            flex: 4;
+            width: 40%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        .idea-section p {
+            flex: 6;
+            font-size: 1.2em;
+            color: #444;
+            line-height: 1.8;
+            margin: 0;
+            text-align: justify;
+        }
     </style>
 </head>
 <body>
-    <!-- 新增標題區塊 -->
     <div class="header">
         <h1>雲林縣高齡人口熱力圖</h1>
         <p>探索高齡化社會的分布與挑戰</p>
     </div>
 
     <div class="container">
-        <!-- 專案介紹 -->
         <div class="card">
             <h2>專案介紹</h2>
             <p>
                 本專案旨在分析雲林縣各村里之高齡人口分布，透過熱力圖視覺化數據，幫助讀者了解高齡化社會的挑戰與機會。
                 雲林縣作為台灣農業大縣，面臨人口外移與高齡化問題，65歲以上高齡人口比例持續上升，已成為政策制定的重要依據。
             </p>
-            <p>
-                本專案的特色包括：
-                <ul>
-                    <li>以村里為單位提供精準的高齡人口數據。</li>
-                    <li>結合互動熱力圖，直觀呈現各年齡層的分布情況。</li>
-                    <li>分析高齡化對醫療資源、社會福利及地方經濟的影響。</li>
-                </ul>
-            </p>
+            <ul>
+                <li>以村里為單位提供精準的高齡人口數據。</li>
+                <li>結合互動熱力圖，直觀呈現各年齡層的分布情況。</li>
+                <li>分析高齡化對醫療資源、社會福利及地方經濟的影響。</li>
+            </ul>
             <p>
                 我們希望透過本專案促進社會大眾對高齡化議題的關注，並提供政策規劃者具體的參考依據，進而打造更具包容性的社會環境。
             </p>
         </div>
 
-        <!-- 年齡熱力圖 -->
         <div class="card">
             <h2>年齡熱力圖</h2>
             <div class="iframe-container">
-                <button id="btn-65plus">65歲以上</button>
-                <button id="btn-65to80">65~80歲</button>
-                <button id="btn-80above">80歲以上</button>
+                <div class="iframe-buttons">
+                    <button id="btn-65plus">65歲以上</button>
+                    <button id="btn-65to80">65~80歲</button>
+                    <button id="btn-80above">80歲以上</button>
+                </div>
                 <iframe id="chart-iframe" src="https://plotdb.io/v/chart/37477" allowfullscreen="true"></iframe>
-                <!-- 新增的分析段落 -->
                 <p id="chart-analysis"></p>
             </div>
         </div>
 
-        <!-- 新增集點子計畫 -->
         <div class="card">
             <h2>集點子計畫</h2>
             <div class="idea-section">
-                <!-- 圖片部分 -->
                 <img src="./A1123320_許帛軒_0401_MSDesigner.jpeg" alt="相關圖片">
-                <!-- 文字部分 -->
                 <p>
-                    本計畫針對高齡人口比例日增所帶來的挑戰，設立高齡手工作坊，讓長者參與傳統工藝教學、手工製品製作與販售，延續技藝、促進文化保存。 教學方式包括聘請專業技師與邀請有經驗的長者擔任講師，初期課程以小飾品、竹編、玩偶等簡單手作為主，逐步擴展至木工家具等進階製作。課程每1至2週為一周期，成果可透過網路或市集販售，協助長者創造收入、提升經濟自主性，過程中也增進社交互動、改善心理健康、減少孤獨感。 另結合社區與志工團隊，提供長者居家安全評估與設備修繕，並由具木工、水電等技能的長者共同參與服務，落實高齡者互助支持。 透過本模式，盼營造充實有意義的晚年生活，建立友善社區，減輕照護壓力，實踐在地與健康老化目標
+                    本計畫針對高齡人口比例日增所帶來的挑戰，設立高齡手工作坊，讓長者參與傳統工藝教學、手工製品製作與販售，延續技藝、促進文化保存。 教學方式包括聘請專業技師與邀請有經驗的長者擔任講師，初期課程以小飾品、竹編、玩偶等簡單手作為主，逐步擴展至木工家具等進階製作。課程每1至2週為一周期，成果可透過網路或市集販售，協助長者創造收入、提升經濟自主性，過程中也增進社交互動、改善心理健康、減少孤獨感。 另結合社區與志工團隊，提供長者居家安全評估與設備修繕，並由具木工、水電等技能的長者共同參與服務，落實高齡者互助支持。 透過本模式，盼營造充實有意義的晚年生活，建立友善社區，減輕照護壓力，實踐在地與健康老化目標。
                 </p>
             </div>
         </div>
     </div>
 
     <script>
-        // JavaScript to handle button clicks and change iframe src and analysis text
         const iframe = document.getElementById('chart-iframe');
         const analysis = document.getElementById('chart-analysis');
 
@@ -192,3 +256,4 @@
     </script>
 </body>
 </html>
+
