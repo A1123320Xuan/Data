@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #ffe4e1, #ffebee); /* 漸層背景 */
+            background: linear-gradient(to bottom, #ffcccc, #ffe6e6); /* 漸層背景 */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,12 +19,12 @@
         /* 標題樣式 */
         .header {
             width: 100%;
-            background: linear-gradient(to right, #4682b4, #5a9bd6); /* 漸層背景 */
+            background: linear-gradient(to right, #ff9999, #ff6666); /* 漸層背景 */
             color: white;
             text-align: center;
             padding: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 更深的陰影效果 */
-            border-bottom: 5px solid #87ceeb; /* 增加邊框 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* 更深的陰影效果 */
+            border-bottom: 5px solid #ff4d4d; /* 增加邊框 */
         }
 
         .header h1 {
@@ -32,14 +32,13 @@
             font-size: 2.5em; /* 大標題字體 */
             letter-spacing: 2px; /* 增加字距 */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 字體陰影 */
-            color: #f0f8ff;
         }
 
         .header p {
             margin: 5px 0 0 0;
-            font-size: 1.2em; /* 副標題字體 */
+            font-size: 1.4em; /* 副標題字體 */
             font-style: italic; /* 斜體字 */
-            color: #f0f8ff; /* 更淺的字體顏色 */
+            color: #ffe6e6; /* 更淺的字體顏色 */
         }
 
         /* 容器樣式 */
@@ -56,10 +55,10 @@
 
         /* 卡片樣式 */
         .card {
-            background: linear-gradient(to bottom, #ffffff, #f7f7f7); /* 微漸層背景 */
-            border: 1px solid #ddd; /* 淡灰色邊框 */
-            border-radius: 15px; /* 更圓的圓角 */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 更顯著的陰影 */
+            background: linear-gradient(to bottom, #ffffff, #f9f9f9); /* 微漸層背景 */
+            border: 2px solid #ddd; /* 淡灰色邊框 */
+            border-radius: 20px; /* 更圓的圓角 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* 更顯著的陰影 */
             padding: 20px;
             width: 100%; /* 調整寬度比例 */
             box-sizing: border-box;
@@ -67,8 +66,8 @@
         }
 
         .card:hover {
-            transform: scale(1.03); /* 懸停時微放大 */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 增加陰影 */
+            transform: scale(1.05); /* 懸停時微放大 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* 增加陰影 */
         }
 
         .card h2 {
@@ -100,43 +99,54 @@
 
         /* iframe 區域 */
         .iframe-container {
+            position: relative;
             width: 100%; /* 調整比例 */
             text-align: center;
+            margin-top: 20px;
         }
 
         iframe {
             width: 100%;
             height: 600px;
-            border: 5px solid #87ceeb; /* 較鮮豔的藍色邊框 */
-            border-radius: 10px; /* 圓角 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+            border: 5px solid #ff9999; /* 較鮮豔的藍色邊框 */
+            border-radius: 15px; /* 圓角 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 陰影效果 */
             transition: transform 0.3s, box-shadow 0.3s; /* 增加過渡效果 */
         }
 
         iframe:hover {
-            transform: scale(1.01); /* 懸停時微放大 */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 增強陰影 */
+            transform: scale(1.02); /* 懸停時微放大 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* 增強陰影 */
         }
 
         /* 按鈕樣式 */
         button {
             margin: 10px;
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 5px;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            border-radius: 10px;
             border: none;
-            background-color: #87ceeb;
+            background-color: #ff6666;
             color: white;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s; /* 增加過渡效果 */
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* 按鈕陰影 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 按鈕陰影 */
         }
 
         button:hover {
-            background-color: #4682b4;
-            transform: translateY(-2px); /* 懸停時微微上移 */
+            background-color: #ff3333;
+            transform: translateY(-3px); /* 懸停時微微上移 */
         }
 
+        /* 分析段落樣式 */
+        #chart-analysis {
+            margin-top: 20px;
+            font-size: 1.2em; /* 增加字體大小 */
+            color: #444; /* 更深的字體顏色 */
+            line-height: 1.8; /* 增加行距 */
+            text-align: justify; /* 文字對齊 */
+        }
+        
         /* 集點子計畫樣式 */
         .idea-section {
             display: flex;
