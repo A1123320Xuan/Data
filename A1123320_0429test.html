@@ -123,17 +123,27 @@
         /* 集點子計畫樣式 */
         .idea-section {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            align-items: stretch; /* 確保圖片和文字的高度一致 */
             gap: 20px;
         }
 
         .idea-section img {
-            flex: 4; /* 圖片占比 4 */
+            flex: 4; /* 圖片占比 40% */
             width: 100%;
-            height: auto;
+            height: auto; /* 自動高度，但下面的 align-items: stretch 保證高度一致 */
             border-radius: 10px; /* 圓角 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 圖片陰影 */
+            object-fit: cover; /* 確保圖片填滿容器 */
+        }
+        .idea-section p {
+            flex: 6; /* 文字占比 60% */
+            font-size: 1.2em; /* 放大文字 */
+            color: #444; /* 深灰色文字 */
+            line-height: 1.8; /* 增加行距 */
+            margin: 0; /* 去除預設外距 */
+            text-align: justify; /* 對齊文字 */
+            display: flex;
+            align-items: center; /* 垂直居中文字 */
         }
 
         .idea-section p {
