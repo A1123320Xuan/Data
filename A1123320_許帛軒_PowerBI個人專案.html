@@ -2,8 +2,8 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>A1123320_許帛軒_綜合專案</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A1123320_許帛軒_PowerBI個人專案</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       background: linear-gradient(120deg, #f8fafc 0%, #a8edea 100%);
@@ -11,55 +11,9 @@
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .nav-tabs {
-      display: flex;
       justify-content: center;
-      gap: 16px;
-      background: #2f65c5;
-      width: 100%;
-      padding: 0.5em 0;
-      box-shadow: 0 4px 12px #2f65c522;
-      margin-bottom: 16px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      align-items: flex-start;
     }
-    .tab-btn {
-      background: transparent;
-      color: #fff;
-      border: none;
-      padding: 14px 38px;
-      font-size: 1.2em;
-      cursor: pointer;
-      border-radius: 24px 24px 0 0;
-      font-weight: bold;
-      letter-spacing: 2px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .tab-btn.active, .tab-btn:hover {
-      background: #fff;
-      color: #2f65c5;
-      box-shadow: 0 -4px 12px #a8edea77;
-    }
-    .tab-content {
-      width: 100%;
-      max-width: 1200px;
-      display: none;
-      margin-bottom: 40px;
-    }
-    .tab-content.active {
-      display: block;
-      animation: fadein 0.3s;
-    }
-    @keyframes fadein {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-
-    /* PowerBI Card */
     .card {
       background: #fff;
       border-radius: 20px;
@@ -68,7 +22,7 @@
       text-align: center;
       max-width: 1100px;
       width: 96vw;
-      margin: 24px auto;
+      margin: 24px auto 50px auto;
       transition: box-shadow 0.2s;
     }
     .card:hover {
@@ -81,24 +35,6 @@
       letter-spacing: 2px;
       font-weight: bold;
     }
-    .iframe-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 60%;
-      margin-bottom: 30px;
-      background: #ececec;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 2px 16px #0002;
-    }
-    .iframe-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-      border-radius: 16px;
-      background: #ececec;
-    }
     .button-group {
       display: flex;
       justify-content: center;
@@ -107,7 +43,7 @@
       flex-wrap: wrap;
     }
     .switch-btn {
-      background: #4f8cff;
+      background: linear-gradient(90deg, #4f8cff 0%, #4fd7ff 100%);
       color: #fff;
       border: none;
       border-radius: 24px;
@@ -115,160 +51,162 @@
       font-size: 1.1rem;
       cursor: pointer;
       box-shadow: 0 2px 6px #4f8cff33;
-      transition: background 0.2s, transform 0.1s;
+      transition: background 0.2s, transform 0.1s, color 0.2s;
       font-weight: 500;
       outline: none;
+      margin-bottom: 2px;
+      position: relative;
     }
     .switch-btn.active,
     .switch-btn:hover {
-      background: #2f65c5;
-      transform: scale(1.06);
+      background: linear-gradient(90deg, #2f65c5 0%, #4fe6e6 100%);
+      color: #fff;
+      transform: scale(1.08);
     }
-    /* 熱力圖樣式 */
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 62.25%;
+      margin-bottom: 30px;
+      background: #ececec;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px #0002;
+      height: 0;
+    }
+    .iframe-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+      border-radius: 16px;
+      background: #ececec;
+    }
+    /* 熱力圖區塊 */
+    .heat-card {
+      background: linear-gradient(to bottom, #fff, #f1f1f1);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      width: 100%;
+      box-sizing: border-box;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-bottom: 32px;
+    }
     .header {
-        width: 100%;
-        background: linear-gradient(to right, #ff9999, #ff6666);
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-        border-bottom: 5px solid #ff4d4d;
-        border-radius: 20px 20px 0 0;
-        margin-bottom: 24px;
+      width: 100%;
+      background: linear-gradient(to right, #ff9999, #ff6666);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      border-bottom: 5px solid #ff4d4d;
+      border-radius: 20px 20px 0 0;
+      margin-bottom: 24px;
     }
     .header h1 {
-        margin: 0;
-        font-size: 2.5em;
-        letter-spacing: 2px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
     .header p {
-        margin: 5px 0 0 0;
-        font-size: 1.4em;
-        font-style: italic;
-        color: #ffe6e6;
+      margin: 5px 0 0 0;
+      font-size: 1.4em;
+      font-style: italic;
+      color: #ffe6e6;
     }
     .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        max-width: 1200px;
-        padding: 40px 20px;
-        box-sizing: border-box;
-        gap: 60px;
-    }
-    .heat-card {
-        background: linear-gradient(to bottom, #fff, #f1f1f1);
-        border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        padding: 20px;
-        width: 100%;
-        box-sizing: border-box;
-        transition: transform 0.3s, box-shadow 0.3s;
-        margin-bottom: 32px;
-    }
-    .heat-card:hover {
-        transform: scale(1.03);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
-    }
-    .heat-card h2 {
-        margin-top: 0;
-        color: #333;
-        position: relative;
-        padding-bottom: 10px;
-        text-align: left;
-    }
-    .highlight {
-        color: red;
-        font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      gap: 60px;
     }
     .iframe-container-heat {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        text-align: center;
-        margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
     }
-    .iframe-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 16px;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
+    .heatmap-btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+    .heatmap-btn {
+      background: linear-gradient(90deg, #ff6a6a 0%, #ffc371 100%);
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 12px 36px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #ff6a6a44;
+      transition: background 0.2s, transform 0.1s;
+      margin-bottom: 2px;
+      font-weight: 600;
+      outline: none;
+      position: relative;
+      letter-spacing: 1px;
+    }
+    .heatmap-btn.active,
+    .heatmap-btn:hover {
+      background: linear-gradient(90deg, #ff3333 0%, #ffb347 100%);
+      color: #fff;
+      transform: scale(1.08);
+      box-shadow: 0 2px 16px #ff333344;
     }
     .iframe-container-heat iframe {
-        width: 100%;
-        height: 600px;
-        border: 5px solid #ff9999;
-        border-radius: 15px;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s, box-shadow 0.3s;
+      width: 100%;
+      height: 600px;
+      border: 5px solid #ff9999;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .idea-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        width: 100%;
-        text-align: center;
+    #chart-analysis {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #444;
+      line-height: 1.8;
+      text-align: justify;
     }
-    .idea-section img {
-        flex: 4;
-        width: 40%;
-        max-height: 300px;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        margin: 0 auto;
-        display: block;
-    }
-    .idea-section p {
-        flex: 6;
-        font-size: 1.2em;
-        color: #444;
-        line-height: 1.8;
-        margin: 0 auto;
-        text-align: center;
-    }
+    .highlight { color: red; font-weight: bold; }
     @media (max-width: 900px) {
       .card, .container, .heat-card { padding: 8px 3px 8px 3px; }
       .title { font-size: 1.2rem; }
       .header h1 { font-size: 1.4em; }
-      .idea-section { flex-direction: column; }
-      .idea-section img, .idea-section p { width: 100%; }
+      .heatmap-btn, .switch-btn { font-size: 1rem; padding: 10px 18px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- 頁籤按鈕 -->
-  <nav class="nav-tabs">
-    <button class="tab-btn active" onclick="switchTab(0)">PowerBI專案首頁</button>
-    <button class="tab-btn" onclick="switchTab(1)">高齡人口熱力圖</button>
-  </nav>
-
-  <!-- 標籤1: PowerBI專案首頁 -->
-  <section class="tab-content active" id="tab-PowerBI">
-    <div class="card">
-      <div class="title">A1123320_許帛軒_PowerBI個人專案</div>
-      <div class="button-group">
-        <button class="switch-btn active" onclick="switchIframe(0)">圖表一</button>
-      </div>
-      <div class="iframe-container" id="iframeContainer">
-        <iframe
-          id="main-iframe"
-          title="PowerBI 圖表一"
-          src="https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D"
-          allowFullScreen="true">
-        </iframe>
-      </div>
+  <div class="card">
+    <div class="title">A1123320_許帛軒_PowerBI個人專案</div>
+    <div class="button-group">
+      <button class="switch-btn active" onclick="switchIframe(0)">圖表一</button>
+      <button class="switch-btn" onclick="switchIframe(1)">圖表二</button>
+      <button class="switch-btn" onclick="switchIframe(2)">圖表三</button>
     </div>
-  </section>
+    <div class="iframe-container" id="iframeContainer">
+      <iframe
+        id="main-iframe"
+        title="PowerBI 圖表一"
+        src="https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D&pageName=8f9cdd166b0121a4fc37"
+        allowFullScreen="true">
+      </iframe>
+    </div>
+  </div>
 
-  <!-- 標籤2: 高齡人口熱力圖 -->
-  <section class="tab-content" id="tab-Heatmap">
+  <div class="card">
     <div class="header">
       <h1>雲林縣高齡人口熱力圖</h1>
       <p>探索高齡化社會的分布與挑戰</p>
@@ -292,63 +230,31 @@
       <div class="heat-card">
         <h2>年齡熱力圖</h2>
         <div class="iframe-container-heat">
-          <div class="iframe-buttons">
-            <button id="btn-65plus">65歲以上</button>
-            <button id="btn-65to80">65~80歲</button>
-            <button id="btn-80above">80歲以上</button>
+          <div class="heatmap-btn-group">
+            <button class="heatmap-btn active" id="btn-65plus">65歲以上</button>
+            <button class="heatmap-btn" id="btn-65to80">65~80歲</button>
+            <button class="heatmap-btn" id="btn-80above">80歲以上</button>
           </div>
-          <iframe id="chart-iframe" src="https://plotdb.io/v/chart/37477" allowfullscreen="true"></iframe>
-          <p id="chart-analysis"></p>
-        </div>
-      </div>
-      <div class="heat-card">
-        <h2>集點子計畫</h2>
-        <div class="idea-section">
-          <img src="./A1123320_許帛軒_0401_MSDesigner.jpeg" alt="相關圖片">
-          <p>
-            本計畫針對<span class="highlight">高齡人口比例日增</span>所帶來的挑戰，設立
-            <span class="highlight">高齡手工作坊</span>，讓長者參與
-            <span class="highlight">傳統工藝教學</span>、
-            <span class="highlight">手工製品製作與販售</span>，
-            延續技藝、促進文化保存。教學方式包括
-            <span class="highlight">聘請專業技師</span>與
-            <span class="highlight">邀請有經驗的長者擔任講師</span>，
-            初期課程以小飾品、竹編、玩偶等簡單手作為主，逐步擴展至木工家具等進階製作。
-            課程每1至2週為一周期，成果可透過
-            <span class="highlight">網路或市集販售</span>，
-            協助長者<span class="highlight">創造收入、提升經濟自主性</span>，
-            過程中也<span class="highlight">增進社交互動、改善心理健康、減少孤獨感</span>。
-            另結合社區與志工團隊，提供
-            <span class="highlight">居家安全評估與設備修繕</span>，
-            並由具木工、水電等技能的長者共同參與服務，落實
-            <span class="highlight">高齡者互助支持</span>。
-            透過本模式，盼營造
-            <span class="highlight">充實有意義的晚年生活</span>，
-            建立友善社區，<span class="highlight">減輕照護壓力</span>，
-            實踐<span class="highlight">在地與健康老化</span>目標。
-          </p>
+          <iframe id="chart-iframe" src="https://plotdb.io/v/chart/37461" allowfullscreen="true"></iframe>
+          <p id="chart-analysis">截至2023年，雲林縣65歲以上人口總數為 <span class='highlight'>138,929人</span>，佔全縣人口比例已超過 <span class='highlight'>20%</span>。</p>
         </div>
       </div>
     </div>
-  </section>
-
+  </div>
   <script>
-    // Tab 切換
-    function switchTab(idx) {
-      // Tab按鈕
-      document.querySelectorAll('.tab-btn').forEach((btn, i) => {
-        btn.classList.toggle('active', i === idx);
-      });
-      // 內容顯示
-      document.querySelectorAll('.tab-content').forEach((tab, i) => {
-        tab.classList.toggle('active', i === idx);
-      });
-    }
-    // PowerBI 圖表切換（目前只剩一個）
+    // PowerBI 切換
     const iframes = [
       {
         title: 'PowerBI 圖表一',
-        src: 'https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D'
+        src: 'https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D&pageName=8f9cdd166b0121a4fc37'
+      },
+      {
+        title: 'PowerBI 圖表二',
+        src: 'https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D&pageName=8b5576bfa23bf2b78cdb'
+      },
+      {
+        title: 'PowerBI 圖表三',
+        src: 'https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D&pageName=bdfcbd096a0fd50028a5'
       }
     ];
     function switchIframe(idx) {
@@ -359,20 +265,33 @@
       iframe.src = iframes[idx].src;
       iframe.title = iframes[idx].title;
     }
-    // 高齡人口熱力圖區塊 切換
-    const iframe = document.getElementById('chart-iframe');
-    const analysis = document.getElementById('chart-analysis');
-    document.getElementById('btn-65plus').addEventListener('click', function() {
-      iframe.src = "https://plotdb.io/v/chart/37461";
-      analysis.innerHTML= "截至2023年，雲林縣65歲以上人口總數為 <span class='highlight'>138,929人</span>，佔全縣人口比例已超過 <span class='highlight'>20%</span>。";
-    });
-    document.getElementById('btn-65to80').addEventListener('click', function() {
-      iframe.src = "https://plotdb.io/v/chart/37477";
-      analysis.innerHTML = "此年齡區間人口為 <span class='highlight'>101,023人</span>，佔全體高齡人口的 <span class='highlight'>72.7%</span>。";
-    });
-    document.getElementById('btn-80above').addEventListener('click', function() {
-      iframe.src = "https://plotdb.io/v/chart/37487";
-      analysis.innerHTML =  "80歲以上長者共計 <span class='highlight'>37,906人</span>，約佔高齡人口的 <span class='highlight'>27.3%</span>。";
+
+    // 熱力圖按鈕切換
+    const chartIframes = [
+      {
+        src: "https://plotdb.io/v/chart/37461",
+        analysis: "截至2023年，雲林縣65歲以上人口總數為 <span class='highlight'>138,929人</span>，佔全縣人口比例已超過 <span class='highlight'>20%</span>。"
+      },
+      {
+        src: "https://plotdb.io/v/chart/37477",
+        analysis: "此年齡區間人口為 <span class='highlight'>101,023人</span>，佔全體高齡人口的 <span class='highlight'>72.7%</span>。"
+      },
+      {
+        src: "https://plotdb.io/v/chart/37487",
+        analysis: "80歲以上長者共計 <span class='highlight'>37,906人</span>，約佔高齡人口的 <span class='highlight'>27.3%</span>。"
+      }
+    ];
+    const heatBtns = [
+      document.getElementById('btn-65plus'),
+      document.getElementById('btn-65to80'),
+      document.getElementById('btn-80above')
+    ];
+    heatBtns.forEach((btn, i) => {
+      btn.addEventListener('click', function() {
+        heatBtns.forEach((b, j) => b.classList.toggle('active', i === j));
+        document.getElementById('chart-iframe').src = chartIframes[i].src;
+        document.getElementById('chart-analysis').innerHTML = chartIframes[i].analysis;
+      });
     });
   </script>
 </body>
