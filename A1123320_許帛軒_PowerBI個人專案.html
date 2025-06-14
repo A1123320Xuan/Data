@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>A1123320_許帛軒_PowerBI個人專案</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
   <style>
     body {
       background: linear-gradient(120deg, #f8fafc 0%, #a8edea 100%);
@@ -12,109 +13,157 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      animation: fadein 1.2s;
+    }
+    @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
     .container {
       display: flex;
-      gap: 32px;
+      gap: 36px;
       flex-wrap: wrap;
-      margin-top: 32px;
-      width: 96vw;
-      max-width: 1200px;
+      margin-top: 36px;
+      width: 97vw;
+      max-width: 1250px;
       justify-content: center;
     }
     .card {
       background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 6px 32px #a8edea77;
-      padding: 36px 32px 28px 32px;
+      border-radius: 26px;
+      box-shadow: 0 8px 36px #a8edea55, 0 2px 12px #7bb3ff33;
+      padding: 38px 32px 30px 32px;
       text-align: center;
       min-width: 340px;
-      max-width: 540px;
+      max-width: 560px;
       width: 100%;
       margin-bottom: 24px;
-      transition: box-shadow 0.2s;
+      transition: box-shadow 0.3s, transform 0.2s;
       flex: 1 1 400px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border: 4px solid transparent;
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      background-image: 
+        linear-gradient(white, white),
+        linear-gradient(120deg, #79c2ff, #a8edea 80%);
+      animation: fadein 1.2s;
     }
     .card:hover {
-      box-shadow: 0 12px 48px #4f8cff44;
+      box-shadow: 0 14px 56px #4f8cff77, 0 2px 12px #7bb3ff33;
+      transform: scale(1.025);
+      border-image: linear-gradient(120deg, #79c2ff, #a8edea 80%) 1;
     }
     .title {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-      color: #2f65c5;
+      font-size: 2.3rem;
+      margin-bottom: 34px;
+      color: #2173d1;
       letter-spacing: 2px;
-      font-weight: bold;
+      font-weight: 700;
+      font-family: 'Montserrat', Arial, sans-serif;
+      text-shadow: 0 2px 12px #a8edea33;
+      animation: fadein 1.2s;
+    }
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+    .switch-btn {
+      background: linear-gradient(90deg, #4f8cff 60%, #a8edea 100%);
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 13px 36px;
+      font-size: 1.15rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px #4f8cff30;
+      transition: background 0.2s, transform 0.12s, box-shadow 0.25s;
+      font-weight: 600;
+      outline: none;
+      letter-spacing: 1.5px;
+      position: relative;
+      z-index: 1;
+    }
+    .switch-btn.active,
+    .switch-btn:hover {
+      background: linear-gradient(100deg, #2173d1 80%, #a8edea 120%);
+      transform: scale(1.08);
+      box-shadow: 0 7px 26px #2173d133;
     }
     .iframe-container {
       position: relative;
       width: 100%;
       padding-bottom: 62%;
       background: #ececec;
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 16px #0002;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 16px #79c2ff22;
+      border: 2px solid #a8edea88;
+      transition: box-shadow 0.2s, transform 0.2s;
+      animation: fadein 1.2s;
     }
     .iframe-container iframe {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       border: none;
-      border-radius: 16px;
+      border-radius: 18px;
       background: #ececec;
     }
-    .button-group {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-    .switch-btn {
-      background: #4f8cff;
-      color: #fff;
-      border: none;
-      border-radius: 24px;
-      padding: 12px 32px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 2px 6px #4f8cff33;
-      transition: background 0.2s, transform 0.1s;
-      font-weight: 500;
-      outline: none;
-    }
-    .switch-btn.active,
-    .switch-btn:hover {
-      background: #2f65c5;
-      transform: scale(1.06);
-    }
     .desc-title {
-      font-size: 1.3rem;
-      color: #4f8cff;
+      font-size: 1.35rem;
+      color: #2490ea;
       font-weight: bold;
-      margin-bottom: 14px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .desc-title::before {
+      content: "📊";
+      font-size: 1.45rem;
+      margin-right: 4px;
     }
     .desc-content {
-      font-size: 1.1rem;
-      color: #222;
+      font-size: 1.13rem;
+      color: #224;
       text-align: left;
       margin: 0 auto;
-      max-width: 420px;
-      line-height: 1.7;
+      max-width: 440px;
+      line-height: 1.83;
+      padding: 18px 18px 18px 18px;
+      background: linear-gradient(120deg, #e8f4fc 70%, #f8fafc 100%);
+      border-radius: 16px;
+      box-shadow: 0 1px 8px #a8edea22;
+      border-left: 5px solid #4f8cff55;
       white-space: pre-line;
+      animation: fadein 1.2s;
+    }
+    .desc-content strong {
+      color: #2173d1;
+      font-weight: bold;
+    }
+    hr {
+      width: 80%;
+      border: none;
+      border-top: 2px solid #a8edea77;
+      margin: 26px auto 18px auto;
     }
     @media (max-width: 1000px) {
       .container { flex-direction: column; gap: 24px; align-items: center; }
       .card { max-width: 98vw; min-width: 0; }
     }
     @media (max-width: 700px) {
-      .title { font-size: 1.3rem; }
-      .desc-title { font-size: 1.1rem; }
-      .desc-content { font-size: 1rem; }
+      .title { font-size: 1.25rem; }
+      .desc-title { font-size: 1.05rem; }
+      .desc-content { font-size: 0.98rem; }
     }
   </style>
 </head>
@@ -135,6 +184,7 @@
           src="https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D&pageName=8f9cdd166b0121a4fc37"
           allowFullScreen="true"></iframe>
       </div>
+      <hr>
     </div>
     <!-- CARD 2：說明 -->
     <div class="card">
@@ -145,7 +195,9 @@
 	點擊不同橫條能進入該分類細項
 	條狀長度直接反映降雨量多寡，視覺化效果明確，有助於快速判斷區域差異
 	適合掌握降雨分布是否集中於少數地區
-這張圖的設計確實能直接對應到你的研究問題：「各地區降雨情況是否均衡？是否有偏乾區域？」，依照雨量總進行上下排序，條狀圖的長度清楚揭示降雨分布是否集中在少數地區，點擊地區可以顯示各測站雨量，繼續點擊則會顯示該測站該月或日雨量，也方便觀察哪些地區出現明顯偏乾的情況。
+
+這張圖的設計確實能直接對應到你的研究問題：「各地區降雨情況是否均衡？是否有偏乾區域？」依照雨量總進行上下排序，條狀圖的長度清楚揭示降雨分布是否集中在少數地區，點擊地區可以顯示各測站雨量，繼續點擊則會顯示該測站該月或日雨量，也方便觀察哪些地區出現明顯偏乾的情況。
+
 透過橫向比較、辨識地區間降雨是否不均的關鍵視覺化，可以有效幫助使用者初步掌握目前整體的降雨落差與區域風險。
       </div>
     </div>
@@ -162,7 +214,9 @@
 	點擊不同橫條能進入該分類細項
 	條狀長度直接反映降雨量多寡，視覺化效果明確，有助於快速判斷區域差異
 	適合掌握降雨分布是否集中於少數地區
-這張圖的設計確實能直接對應到你的研究問題：「各地區降雨情況是否均衡？是否有偏乾區域？」，依照雨量總進行上下排序，條狀圖的長度清楚揭示降雨分布是否集中在少數地區，點擊地區可以顯示各測站雨量，繼續點擊則會顯示該測站該月或日雨量，也方便觀察哪些地區出現明顯偏乾的情況。
+
+這張圖的設計確實能直接對應到你的研究問題：「各地區降雨情況是否均衡？是否有偏乾區域？」依照雨量總進行上下排序，條狀圖的長度清楚揭示降雨分布是否集中在少數地區，點擊地區可以顯示各測站雨量，繼續點擊則會顯示該測站該月或日雨量，也方便觀察哪些地區出現明顯偏乾的情況。
+
 透過橫向比較、辨識地區間降雨是否不均的關鍵視覺化，可以有效幫助使用者初步掌握目前整體的降雨落差與區域風險。`
       },
       {
@@ -176,7 +230,9 @@
 	支援互動篩選特定測站或地區進行比對
 	幫助預警乾旱傾向或短時強降雨現象
 	能夠針對同一測站不同月份進行觀察，比對
+
 這一頁採用折線圖呈現每日降雨量的變化趨勢，圖中每條線代表一個測站，X 軸為時間（日），Y 軸為雨量，透過這個時間序列圖，使用者可以清楚看出哪幾天有下雨、哪幾天連續乾燥，也能發現雨量是否集中於特定天數（例如一整個月中只有幾天有明顯降雨）。
+
 使用者可以藉由選取不同測站來進行比對，也能觀察「是否普遍在某些日子下雨，其他時間乾旱」，這樣的視覺設計能幫助政府或農業使用者掌握是否有乾旱前兆，例如連續多日無雨。`
       },
       {
@@ -189,21 +245,20 @@
 	橫軸：測站名稱（或代碼），縱軸：偏差值（mm）
 	能清楚辨識哪些地區「異常偏乾」
 	適用於氣候風險評估與水資源調控參考
+
 這一頁以差異條狀圖與顏色強調方式，漏斗圖展示由各地區雨量進行排序，呈現各測站差異，並能觀察到缺水測站，瀑布圖的每個長條表示一個測站的「雨量偏離值」，正值代表高於平均、負值代表低於平均，透過兩個圖表，能快速辨識哪些測站目前的降雨量明顯不足，特別適合用來追蹤潛在的缺水熱點。
+
 互動上，使用者可以依照區域、測站類別篩選，查看是否某些區域普遍低於平均，或是個別測站出現極端偏差，這張圖讓我們不只是看到「現在有沒有下雨」，還能知道「這樣的雨量正常嗎？還是相比前幾個月很多？」進一步支援政策上的用水調配與警戒判斷`
       }
     ];
 
     function switchIframe(idx) {
-      // 切換Active按鈕
       document.querySelectorAll('.switch-btn').forEach((btn, i) => {
         btn.classList.toggle('active', i === idx);
       });
-      // 切換iframe
       const iframe = document.getElementById('main-iframe');
       iframe.src = iframes[idx].src;
       iframe.title = iframes[idx].title;
-      // 切換說明
       document.getElementById('descTitle').textContent = iframes[idx].descTitle;
       document.getElementById('descContent').textContent = iframes[idx].desc;
     }
