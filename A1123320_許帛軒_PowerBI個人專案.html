@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>A1123320_許帛軒_PowerBI個人專案</title>
+  <title>個人專案集</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -13,32 +13,6 @@
       justify-content: center;
       align-items: center;
       font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    header {
-      width: 100vw;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
-      color: #fff;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      letter-spacing: 2px;
-      margin-bottom: 24px;
-    }
-    header .main-title {
-      margin: 0;
-      padding: 35px 0 12px 0;
-      font-size: 2.6rem;
-      font-weight: 700;
-      letter-spacing: 6px;
-      text-shadow: 0 3px 12px #4e54c880;
-    }
-    header .subtitle {
-      font-size: 1.1rem;
-      font-weight: 400;
-      margin-bottom: 18px;
-      color: #ececec;
-      letter-spacing: 2px;
     }
     .card {
       background: #fff;
@@ -54,14 +28,43 @@
     .card:hover {
       box-shadow: 0 12px 48px #4f8cff44;
     }
-    .title {
-      display: none; /* 舊的標題區塊隱藏，改用header */
+    .tab-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: #4f8cff;
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 6px #4f8cff33;
+      transition: background 0.2s, transform 0.1s;
+      font-weight: 500;
+      outline: none;
+    }
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: #2f65c5;
+      transform: scale(1.06);
+    }
+    .project-section {
+      display: none;
+      animation: fadeIn 0.4s;
+    }
+    .project-section.active {
+      display: block;
     }
     .iframe-container {
       position: relative;
       width: 100%;
       padding-bottom: 60%;
-      margin-bottom: 30px;
+      margin-bottom: 18px;
       background: #ececec;
       border-radius: 16px;
       overflow: hidden;
@@ -75,88 +78,62 @@
       border-radius: 16px;
       background: #ececec;
     }
-    .button-group {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
+    .desc {
       margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-    .switch-btn {
-      background: #4f8cff;
-      color: #fff;
-      border: none;
-      border-radius: 24px;
-      padding: 12px 32px;
       font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 2px 6px #4f8cff33;
-      transition: background 0.2s, transform 0.1s;
-      font-weight: 500;
-      outline: none;
+      color: #444;
     }
-    .switch-btn.active,
-    .switch-btn:hover {
-      background: #2f65c5;
-      transform: scale(1.06);
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
     }
     @media (max-width: 900px) {
-      header .main-title { font-size: 1.4rem; }
       .card { padding: 16px 6px 16px 6px; }
       .iframe-container { padding-bottom: 65%; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="main-title">A1123320 許帛軒 PowerBI 個人專案</div>
-    <div class="subtitle">互動式儀表板展示與多圖切換體驗</div>
-  </header>
   <div class="card">
-    <!-- 舊標題區塊 <div class="title">A1123320_許帛軒_PowerBI個人專案</div> 已隱藏 -->
-    <div class="button-group">
-      <button class="switch-btn active" onclick="switchIframe(0)">圖表一</button>
-      <button class="switch-btn" onclick="switchIframe(1)">圖表二</button>
-      <button class="switch-btn" onclick="switchIframe(2)">圖表三</button>
-      <!-- 如有更多圖，繼續加 -->
+    <div class="tab-group">
+      <button class="tab-btn active" onclick="showProject(0)">專案一：PowerBI 個人專案</button>
+      <button class="tab-btn" onclick="showProject(1)">專案二：雲林高齡熱力圖</button>
     </div>
-    <div class="iframe-container" id="iframeContainer">
-      <!-- 預設顯示第一個iframe -->
-      <iframe
-        id="main-iframe"
-        title="PowerBI 圖表一"
-        src="https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D"
-        allowFullScreen="true">
-      </iframe>
+    <!-- 專案一內容 -->
+    <div class="project-section active">
+      <div class="desc">
+        這是 PowerBI 個人專案，展示資料視覺化成果。
+      </div>
+      <div class="iframe-container">
+        <iframe
+          title="PowerBI 個人專案"
+          src="https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D"
+          allowFullScreen="true">
+        </iframe>
+      </div>
+    </div>
+    <!-- 專案二內容 -->
+    <div class="project-section">
+      <div class="desc">
+        雲林縣村里級高齡人口熱力圖，分析高齡分布與社會挑戰。
+      </div>
+      <div class="iframe-container">
+        <iframe
+          title="雲林高齡熱力圖"
+          src="https://plotdb.io/v/chart/37477"
+          allowFullScreen="true">
+        </iframe>
+      </div>
     </div>
   </div>
   <script>
-    // 這裡放你所有PowerBI圖表的src
-    const iframes = [
-      {
-        title: 'PowerBI 圖表一',
-        src: 'https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D'
-      },
-      {
-        title: 'PowerBI 圖表二',
-        src: 'https://app.powerbi.com/view?r=YOUR_SECOND_REPORT_ID' // 第二個圖表iframe網址
-      },
-      {
-        title: 'PowerBI 圖表三',
-        src: 'https://app.powerbi.com/view?r=YOUR_THIRD_REPORT_ID' // 第三個圖表iframe網址
-      }
-      // 可依需求繼續新增
-    ];
-
-    function switchIframe(idx) {
-      // 切換Active按鈕
-      document.querySelectorAll('.switch-btn').forEach((btn, i) => {
+    function showProject(idx) {
+      document.querySelectorAll('.tab-btn').forEach((btn, i) => {
         btn.classList.toggle('active', i === idx);
       });
-      // 切換iframe
-      const iframe = document.getElementById('main-iframe');
-      iframe.src = iframes[idx].src;
-      iframe.title = iframes[idx].title;
+      document.querySelectorAll('.project-section').forEach((sec, i) => {
+        sec.classList.toggle('active', i === idx);
+      });
     }
   </script>
 </body>
