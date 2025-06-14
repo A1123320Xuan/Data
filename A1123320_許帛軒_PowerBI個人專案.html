@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>A1123320_許帛軒_PowerBI個人專案</title>
+  <title>A1123320_許帛軒_PowerBI專案</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -38,7 +38,7 @@
     .iframe-container {
       position: relative;
       width: 100%;
-      padding-bottom: 60%;
+      padding-bottom: 56.25%;
       margin-bottom: 30px;
       background: #ececec;
       border-radius: 16px;
@@ -53,31 +53,6 @@
       border-radius: 16px;
       background: #ececec;
     }
-    .button-group {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-    .switch-btn {
-      background: #4f8cff;
-      color: #fff;
-      border: none;
-      border-radius: 24px;
-      padding: 12px 32px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 2px 6px #4f8cff33;
-      transition: background 0.2s, transform 0.1s;
-      font-weight: 500;
-      outline: none;
-    }
-    .switch-btn.active,
-    .switch-btn:hover {
-      background: #2f65c5;
-      transform: scale(1.06);
-    }
     @media (max-width: 900px) {
       .card { padding: 16px 6px 16px 6px; }
       .iframe-container { padding-bottom: 65%; }
@@ -87,51 +62,14 @@
 </head>
 <body>
   <div class="card">
-    <div class="title">A1123320_許帛軒_PowerBI個人專案</div>
-    <div class="button-group">
-      <button class="switch-btn active" onclick="switchIframe(0)">圖表一</button>
-      <button class="switch-btn" onclick="switchIframe(1)">圖表二</button>
-      <button class="switch-btn" onclick="switchIframe(2)">圖表三</button>
-      <!-- 如有更多圖，繼續加 -->
-    </div>
-    <div class="iframe-container" id="iframeContainer">
-      <!-- 預設顯示第一個iframe -->
+    <div class="title">A1123320_許帛軒_PowerBI專案</div>
+    <div class="iframe-container">
       <iframe
-        id="main-iframe"
-        title="PowerBI 圖表一"
+        title="A1123320_許帛軒_PowerBI專案"
         src="https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D"
         allowFullScreen="true">
       </iframe>
     </div>
   </div>
-  <script>
-    // 這裡放你所有PowerBI圖表的src
-    const iframes = [
-      {
-        title: 'PowerBI 圖表一',
-        src: 'https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D'
-      },
-      {
-        title: 'PowerBI 圖表二',
-        src: 'https://app.powerbi.com/view?r=YOUR_SECOND_REPORT_ID' // 第二個圖表iframe網址
-      },
-      {
-        title: 'PowerBI 圖表三',
-        src: 'https://app.powerbi.com/view?r=YOUR_THIRD_REPORT_ID' // 第三個圖表iframe網址
-      }
-      // 可依需求繼續新增
-    ];
-
-    function switchIframe(idx) {
-      // 切換Active按鈕
-      document.querySelectorAll('.switch-btn').forEach((btn, i) => {
-        btn.classList.toggle('active', i === idx);
-      });
-      // 切換iframe
-      const iframe = document.getElementById('main-iframe');
-      iframe.src = iframes[idx].src;
-      iframe.title = iframes[idx].title;
-    }
-  </script>
 </body>
 </html>
