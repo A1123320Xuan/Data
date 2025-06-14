@@ -5,134 +5,41 @@
   <title>A1123320_許帛軒_PowerBI個人專案</title>
   <style>
     body {
-      background: linear-gradient(120deg, #f8fafc 0%, #a8edea 100%);
-      font-family: 'Segoe UI', Arial, sans-serif;
-      padding: 40px 0;
-      min-height: 100vh;
-    }
-    .category-buttons {
+      background: #f8fafc;
       display: flex;
       justify-content: center;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-    .category-btn {
-      background: #4f8cff;
-      color: #fff;
-      border: none;
-      border-radius: 24px;
-      padding: 12px 28px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 2px 6px #4f8cff33;
-      transition: background 0.2s;
-    }
-    .category-btn.active,
-    .category-btn:hover {
-      background: #2f65c5;
-    }
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 24px;
-    }
-    .image-card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 4px 18px #a8edea55;
-      padding: 18px;
-      width: 340px;
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      transition: transform 0.12s;
+      min-height: 100vh;
+      margin: 0;
     }
-    .image-card:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 8px 28px #4f8cff44;
-    }
-    .image-card img {
-      width: 270px;
-      height: 170px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 8px #0002;
-    }
-    .image-card iframe {
-      width: 600px;
-      height: 373.5px;
-      border: none;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      background: #ececec;
-      box-shadow: 0 2px 8px #0002;
-      max-width: 100%;
-    }
-    .image-title {
-      font-size: 16px;
-      color: #444;
-      font-weight: 600;
+    .container {
+      background: #fff;
+      padding: 24px 36px;
+      border-radius: 20px;
+      box-shadow: 0 4px 18px #a8edea55;
       text-align: center;
+    }
+    h2 {
+      color: #2f65c5;
+      margin-bottom: 24px;
+    }
+    iframe {
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #0002;
+      background: #ececec;
+      max-width: 100%;
     }
   </style>
 </head>
 <body>
-  <div class="category-buttons" id="categoryButtons"></div>
-  <div class="card-container" id="cardContainer"></div>
-
-  <script>
-    // 圖片與Power BI資料
-    const cards = [
-      { type: 'image', src: 'https://picsum.photos/id/1011/400/280', title: '自然景觀', category: '圖片' },
-      { type: 'image', src: 'https://picsum.photos/id/1025/400/280', title: '動物', category: '圖片' },
-      {
-        type: 'iframe',
-        src: 'https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D',
-        title: 'A1123320_許帛軒_PowerBI個人專案',
-        category: 'PowerBI'
-      }
-    ];
-
-    // 取得所有類別
-    const categories = [...new Set(cards.map(card => card.category))];
-
-    // DOM
-    const categoryButtons = document.getElementById('categoryButtons');
-    const cardContainer = document.getElementById('cardContainer');
-
-    // 建立按鈕
-    categories.forEach((cat, idx) => {
-      const btn = document.createElement('button');
-      btn.className = 'category-btn' + (idx === 0 ? ' active' : '');
-      btn.textContent = cat;
-      btn.onclick = () => {
-        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        showCards(cat);
-      };
-      categoryButtons.appendChild(btn);
-    });
-
-    // 顯示卡片
-    function showCards(category) {
-      cardContainer.innerHTML = '';
-      cards.filter(card => card.category === category).forEach(card => {
-        const cardDiv = document.createElement('div');
-        cardDiv.className = 'image-card';
-        if(card.type === 'image') {
-          cardDiv.innerHTML = `<img src="${card.src}" alt="${card.title}"><div class="image-title">${card.title}</div>`;
-        } else if(card.type === 'iframe') {
-          cardDiv.innerHTML = `<iframe title="${card.title}" width="600" height="373.5" src="${card.src}" frameborder="0" allowFullScreen="true"></iframe>
-          <div class="image-title">${card.title}</div>`;
-        }
-        cardContainer.appendChild(cardDiv);
-      });
-    }
-
-    // 初始化顯示第一個類別
-    showCards(categories[0]);
-  </script>
+  <div class="container">
+    <h2>A1123320_許帛軒_PowerBI個人專案</h2>
+    <iframe title="A1123320_許帛軒_PowerBI個人專案"
+            width="600"
+            height="373.5"
+            src="https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D"
+            frameborder="0"
+            allowFullScreen="true"></iframe>
+  </div>
 </body>
 </html>
