@@ -105,6 +105,7 @@
       margin: 0 auto;
       max-width: 420px;
       line-height: 1.7;
+      white-space: pre-line;
     }
     @media (max-width: 1000px) {
       .container { flex-direction: column; gap: 24px; align-items: center; }
@@ -130,39 +131,66 @@
       <div class="iframe-container" id="iframeContainer">
         <iframe
           id="main-iframe"
-          title="PowerBI 圖表一"
+          title="各測站雨量總覽"
           src="https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D&pageName=8f9cdd166b0121a4fc37"
           allowFullScreen="true"></iframe>
       </div>
     </div>
     <!-- CARD 2：說明 -->
     <div class="card">
-      <div class="desc-title" id="descTitle">圖表一說明</div>
+      <div class="desc-title" id="descTitle">各測站雨量總覽</div>
       <div class="desc-content" id="descContent">
-        這裡是圖表一的說明內容。你可以自行填寫每個圖表的分析與介紹。
+這一頁主要特色如下：
+	每條橫條代表一個類別的「總降雨量」
+	點擊不同橫條能進入該分類細項
+	條狀長度直接反映降雨量多寡，視覺化效果明確，有助於快速判斷區域差異
+	適合掌握降雨分布是否集中於少數地區
+這張圖的設計確實能直接對應到你的研究問題：「各地區降雨情況是否均衡？是否有偏乾區域？」，依照雨量總進行上下排序，條狀圖的長度清楚揭示降雨分布是否集中在少數地區，點擊地區可以顯示各測站雨量，繼續點擊則會顯示該測站該月或日雨量，也方便觀察哪些地區出現明顯偏乾的情況。
+透過橫向比較、辨識地區間降雨是否不均的關鍵視覺化，可以有效幫助使用者初步掌握目前整體的降雨落差與區域風險。
       </div>
     </div>
   </div>
   <script>
-    // 圖表 iframe 與說明內容
+    // 各圖表的iframe與說明內容
     const iframes = [
       {
-        title: 'PowerBI 圖表一',
+        title: '各測站雨量總覽',
         src: 'https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D&pageName=8f9cdd166b0121a4fc37',
-        descTitle: '圖表一說明',
-        desc: '這裡是圖表一的說明內容。你可以自行填寫每個圖表的分析與介紹。'
+        descTitle: '各測站雨量總覽',
+        desc: `這一頁主要特色如下：
+	每條橫條代表一個類別的「總降雨量」
+	點擊不同橫條能進入該分類細項
+	條狀長度直接反映降雨量多寡，視覺化效果明確，有助於快速判斷區域差異
+	適合掌握降雨分布是否集中於少數地區
+這張圖的設計確實能直接對應到你的研究問題：「各地區降雨情況是否均衡？是否有偏乾區域？」，依照雨量總進行上下排序，條狀圖的長度清楚揭示降雨分布是否集中在少數地區，點擊地區可以顯示各測站雨量，繼續點擊則會顯示該測站該月或日雨量，也方便觀察哪些地區出現明顯偏乾的情況。
+透過橫向比較、辨識地區間降雨是否不均的關鍵視覺化，可以有效幫助使用者初步掌握目前整體的降雨落差與區域風險。`
       },
       {
-        title: 'PowerBI 圖表二',
+        title: '時間序列雨量變化',
         src: 'https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D&pageName=8b5576bfa23bf2b78cdb',
-        descTitle: '圖表二說明',
-        desc: '請填入圖表二的說明內容。'
+        descTitle: '時間序列雨量變化',
+        desc: `這一頁主要特色如下：
+	每條線代表一個測站，顯示每日降雨變化，X 軸為日期，Y 軸為每日雨量(mm)
+	可比較不同測站在相同日期的降雨情形
+	容易辨識「連續無雨日」與「雨量爆發日」
+	支援互動篩選特定測站或地區進行比對
+	幫助預警乾旱傾向或短時強降雨現象
+	能夠針對同一測站不同月份進行觀察，比對
+這一頁採用折線圖呈現每日降雨量的變化趨勢，圖中每條線代表一個測站，X 軸為時間（日），Y 軸為雨量，透過這個時間序列圖，使用者可以清楚看出哪幾天有下雨、哪幾天連續乾燥，也能發現雨量是否集中於特定天數（例如一整個月中只有幾天有明顯降雨）。
+使用者可以藉由選取不同測站來進行比對，也能觀察「是否普遍在某些日子下雨，其他時間乾旱」，這樣的視覺設計能幫助政府或農業使用者掌握是否有乾旱前兆，例如連續多日無雨。`
       },
       {
-        title: 'PowerBI 圖表三',
+        title: '測站地理分布圖',
         src: 'https://app.powerbi.com/view?r=eyJrIjoiODBjZmYwMTItYjkyNi00YWFmLTk2Y2MtYjU2ZWM4YzAyOTZhIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D&pageName=bdfcbd096a0fd50028a5',
-        descTitle: '圖表三說明',
-        desc: '請填入圖表三的說明內容。'
+        descTitle: '測站地理分布圖',
+        desc: `這一頁主要特色如下：
+	每個條狀顯示某測站「目前雨量」與「歷月平均」的差距
+	條狀向上：高於平均；向下：低於平均
+	橫軸：測站名稱（或代碼），縱軸：偏差值（mm）
+	能清楚辨識哪些地區「異常偏乾」
+	適用於氣候風險評估與水資源調控參考
+這一頁以差異條狀圖與顏色強調方式，漏斗圖展示由各地區雨量進行排序，呈現各測站差異，並能觀察到缺水測站，瀑布圖的每個長條表示一個測站的「雨量偏離值」，正值代表高於平均、負值代表低於平均，透過兩個圖表，能快速辨識哪些測站目前的降雨量明顯不足，特別適合用來追蹤潛在的缺水熱點。
+互動上，使用者可以依照區域、測站類別篩選，查看是否某些區域普遍低於平均，或是個別測站出現極端偏差，這張圖讓我們不只是看到「現在有沒有下雨」，還能知道「這樣的雨量正常嗎？還是相比前幾個月很多？」進一步支援政策上的用水調配與警戒判斷`
       }
     ];
 
